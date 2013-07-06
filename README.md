@@ -13,11 +13,9 @@ https://dl.dropboxusercontent.com/u/189487083/index.html
 
 The original Flash alpha can be viewed at www.swfcabin.com/open/1371783390
 
-Collaboration
+Contacting Project Stallman RPG
 
-As an open source project we will depend heavily on github - collaborators are encouraged to catch up on it's use if unfamiliar - please be aware that use of github is a polite lithmus test to involvement in the project.
-
-Developers can contact me through the stallmanrpg blog via http://stallmanrpg.wordpress.com/2013/06/24/github/
+Anyone can contact me through the stallmanrpg blog via http://stallmanrpg.wordpress.com/2013/06/24/github/
 
 Development Stages
 
