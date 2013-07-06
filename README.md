@@ -4,7 +4,7 @@ A /g/ project born of our love for RMS and on the backs of broken dreams and oth
 
 The Game
 
-The game will consist of an opening intro, title screen, a top-down GTA style driving mission mixed with RPG elements like NPC interaction and dialogue, and concluding with RPG turn-based battle. The original Flash alpha can be viewed here.
+The game will consist of an opening intro, title screen, a top-down GTA style driving mission mixed with RPG elements like NPC interaction and dialogue, and concluding with RPG turn-based battle. The original Flash alpha can be viewed at www.swfcabin.com/open/1371783390
 
 Collaboration
 
