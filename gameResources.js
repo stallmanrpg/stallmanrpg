@@ -17,11 +17,11 @@ var gameResources = [
     { name: "dash", type: "image", src: "data/dash.png" },
     { name: "die", type: "image", src: "data/money_chang.png" },
 
-    { name: "collision_tiles", type: "image", src: "data/metatiles35x35.png" },
-    { name: "tileset", type: "image", src: "data/tileset.png" },
+    { name: "metatiles35x35", type: "image", src: "data/metatiles35x35.png" },
+    { name: "hyposis_tileset", type: "image", src: "data/hyposis_tileset.png" },
     { name: "bg1", type: "image", src: "data/bg1.jpeg" },
 
-    { name: "level1", type: "tmx", src: "data/levelx.tmx" },
+    { name: "level1", type: "tmx", src: "data/levelx2.tmx" },
 
 
     { name: "dash", type: "audio", src: "data/", channels : 2 },
