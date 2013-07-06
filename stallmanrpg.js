@@ -8,7 +8,7 @@
 var jsApp = {
     onload: function()
     {
-        if ( !me.video.init( 'game', 800, 600) )
+        if ( !me.video.init( 'game', 600, 420) )
         {
             alert( "Sorry, it appears your browser does not support HTML5." );
             return;
