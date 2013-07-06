@@ -59,13 +59,13 @@ var Player = me.ObjectEntity.extend(
         this.setCurrentAnimation( "downidle" );
         this.animationspeed = 5;
 
-        me.input.bindKey( me.input.KEY.LEFT, "left" );
-        me.input.bindKey( me.input.KEY.RIGHT, "right" );
-        me.input.bindKey( me.input.KEY.UP, "up" );
-        me.input.bindKey( me.input.KEY.DOWN, "down" );
-        me.input.bindKey( me.input.KEY.X, "weakAttack", true );
-        me.input.bindKey( me.input.KEY.C, "strongAttack", true );
-        me.input.bindKey( me.input.KEY.V, "dash", true );
+        me.input.bindKey( me.input.KEY.A, "left" );
+        me.input.bindKey( me.input.KEY.D, "right" );
+        me.input.bindKey( me.input.KEY.W, "up" );
+        me.input.bindKey( me.input.KEY.S, "down" );
+        me.input.bindKey( me.input.KEY.J, "weakAttack", true );
+        me.input.bindKey( me.input.KEY.K, "strongAttack", true );
+        me.input.bindKey( me.input.KEY.L, "dash", true );
 
         me.game.viewport.follow( this.pos, me.game.viewport.AXIS.BOTH );
         me.game.viewport.setDeadzone( me.game.viewport.width / 10,

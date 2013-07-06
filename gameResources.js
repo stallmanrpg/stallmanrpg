@@ -25,7 +25,7 @@ var gameResources = [
 
 
     { name: "dash", type: "audio", src: "data/", channels : 2 },
-    { name: "death", type: "audio", src: "data/", channels : 2 },
+    //{ name: "death", type: "audio", src: "data/", channels : 2 },
     { name: "grab", type: "audio", src: "data/", channels : 2 },
     { name: "hit", type: "audio", src: "data/", channels : 2 },
     { name: "hugdeath", type: "audio", src: "data/", channels : 2 },
@@ -36,5 +36,5 @@ var gameResources = [
     { name: "weakattack0", type: "audio", src: "data/", channels : 2 },
     { name: "weakattack1", type: "audio", src: "data/", channels : 2 },
 	
-    { name: "level1", type: "audio", src: "data/", channels : 2 },
+    //{ name: "level1", type: "audio", src: "data/", channels : 2 },
 ];
