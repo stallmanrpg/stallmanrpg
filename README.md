@@ -52,3 +52,8 @@ We will release the game online through multiple websites and will also release 
     along with Foobar.  If not, see <http://www.gnu.org/licenses/>.
 
 
+#Special Credits
+
+melonJS for being an awesome framework for a beginner to start with!
+
+And the showcased Ludum Dare team 'radmars' for creating theBrink which was a breeze to adapt from - http://radmars.com/theBrink/sub/
