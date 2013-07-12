@@ -293,9 +293,9 @@ var Player = me.ObjectEntity.extend(
     },
 
     checkCollision: function( obj ) {
-        if( obj.door ) {
+     /*   if( obj.door ) {
             return this.parent( obj );
-        }
+        }*/
         return null;
     },
 
@@ -338,7 +338,7 @@ var Player = me.ObjectEntity.extend(
         if ( this.strongAttackTimer > 0 )
             this.strongAttackTimer--;
 
-        /*this.headParticleTimer--;
+        this.headParticleTimer--;
         if ( this.headParticleTimer == 0 )
         {
             this.headParticleTimer = 30;
@@ -346,7 +346,7 @@ var Player = me.ObjectEntity.extend(
                 "headparticle", 96, 6, [ 0, 1, 2, 3, 4, 5, 6 ], "", false );
             me.game.add( headP, this.z - 1 );
             me.game.sort();
-        }*/
+        }
 
         // stupid hack to make diagonal movement obey max velocity
         // (we can just use x since both components are the same)
@@ -358,12 +358,12 @@ var Player = me.ObjectEntity.extend(
         }
 
         // check if we collide with a door.
-        if( colres && colres.obj.door ) {
+        /*if( colres && colres.obj.door ) {
             this.vel.x = colres.x ? 0 : this.vel.x;
             this.vel.y = colres.y ? 0 : this.vel.y;
             this.pos.x -= colres.x;
             this.pos.y -= colres.y;
-        }
+        }*/
 
         this.updateMovement();
 
@@ -376,7 +376,7 @@ var PlayerParticle = me.ObjectEntity.extend(
 {
     init: function( x, y, sprite, spritewidth, speed, frames, type, collide, spriteheight )
     {
-        var settings = new Object();
+        var settings = new Object(); 
         settings.image = sprite;
         settings.spritewidth = spritewidth;
         settings.spriteheight = spriteheight;
@@ -386,7 +386,7 @@ var PlayerParticle = me.ObjectEntity.extend(
         this.animationspeed = speed;
         this.addAnimation( "play", frames );
         this.setCurrentAnimation( "play",
-            function() { me.game.remove( this ) } );
+        function() { me.game.remove( this ) } );
         this.type = type;
         this.collide = collide;
     },

@@ -24,7 +24,8 @@ var jsApp = {
 
     loaded: function()
     {
-
+     
+	me.state.set( me.state.INTRO, new IntroScreen() );
         me.state.set( me.state.PLAY, new PlayScreen() );
 
 
@@ -32,17 +33,53 @@ var jsApp = {
         me.entityPool.add( "hugger", Hugger );
         me.entityPool.add( "pusher", Pusher );
 		
-		me.state.change( me.state.PLAY);
+		me.state.change( me.state.INTRO);
         me.debug.renderHitBox = false;
     }
 };
+
+var IntroScreen = me.ScreenObject.extend({
+    init: function() {
+        this.parent( true );
+        this.counter = 0;
+    },
+
+    onResetEvent: function() {
+	var fade = '#000000';
+        var duration = 1000;
+        /*if( ! this.title ) {
+            this.bg= me.loader.getImage("intro_bg");
+        }*/
+
+        me.input.bindKey( me.input.KEY.ENTER, "enter", true );
+        //me.audio.playTrack( "stallbeat" );
+	me.game.viewport.fadeOut(fade,duration);
+    },
+
+    update: function() {
+        if( me.input.isKeyPressed('enter')) {
+            me.state.change(me.state.PLAY);
+        }
+        if ( this.counter < 100 )
+        {
+            this.counter++;
+        }else{
+            me.state.change(me.state.PLAY);
+        }
+        me.game.repaint();
+    },
+
+    onDestroyEvent: function() {
+        me.input.unbindKey(me.input.KEY.ENTER);
+        me.audio.stopTrack();
+    }
+});
 
 
 var PlayScreen = me.ScreenObject.extend({
     init: function()
     {
-		this.startTime = 60.0; 
-		
+	this.startTime = 60.0; 
         this.parent( true, true );
     },
 
@@ -65,7 +102,6 @@ var PlayScreen = me.ScreenObject.extend({
         var duration = 1000;
 
         me.levelDirector.loadLevel( level );
-   
         me.game.sort();
         me.game.viewport.fadeOut( fade, duration, function() {
  
@@ -75,16 +111,17 @@ var PlayScreen = me.ScreenObject.extend({
 
     getCurrentMusic: function()
     {
+
     },
 
     startLevel: function( level )
     {
         var fade = '#000000';
         var duration = 500;
-
-        me.audio.stopTrack;
-        if ( level != "testlevel" ) // 
+        
+        //if ( level != "testlevel" ) // 
             //me.audio.playTrack( level );
+        me.audio.playTrack( "stallbeat" );
 
         me.game.viewport.fadeIn(
             fade,

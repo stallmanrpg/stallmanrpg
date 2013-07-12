@@ -35,6 +35,6 @@ var gameResources = [
     { name: "strongattack", type: "audio", src: "data/", channels : 2 },
     { name: "weakattack0", type: "audio", src: "data/", channels : 2 },
     { name: "weakattack1", type: "audio", src: "data/", channels : 2 },
-	
-    //{ name: "level1", type: "audio", src: "data/", channels : 2 },
+    
+    { name: "stallbeat", type: "audio", src: "data/", channels : 2 },
 ];
