@@ -331,3 +331,110 @@ var Pusher = Enemy.extend({
     }
 });
 
+var Shooter = Enemy.extend(
+{
+    init: function( x, y, settings )
+    {
+        this.range = settings.range || 400;
+        this.speed = settings.speed || .3;
+        settings.image = "shooter";
+        settings.spritewidth = 96;
+        settings.spriteheight = 96;
+        this.parent( x, y, settings );
+
+        this.hp = 7;
+
+        this.setMaxVelocity( 2.0, 2.0 );
+
+        this.deathSound = "shootdeath";
+
+        this.shootTimer = 0;
+
+        var directions = [ "down", "left", "up", "right" ];
+        for ( var i = 0; i < directions.length; i++ )
+        {
+            var index = i * 4;
+            this.addAnimation( directions[ i ] + "idle", [ index ] );
+            this.addAnimation( directions[ i ] + "run",
+                [ index, index + 1, index, index + 2 ] );
+            this.addAnimation( directions[ i ] + "shoot", [ index + 3 ] );
+        }
+    },
+
+    update: function()
+    {
+        this.updateDirectionString();
+
+        var direction = this.toPlayer();
+        var move = false;
+        if( direction ) {
+            var dist = direction.length();
+            if( dist < this.range && dist > 150 )
+            {
+                direction.normalize();
+                this.vel.x += direction.x * this.speed;
+                this.vel.y += direction.y * this.speed;
+                this.direction = direction;
+                move = true;
+
+                if ( this.shootTimer == 0 && dist > 50 )
+                {
+                    this.fireBullet( "shooterBullet", 8.0 );
+                    this.shootTimer = 180;
+                }
+            }
+        }
+
+        if ( this.shootTimer > 0 )
+            this.shootTimer--;
+
+        if ( this.shootTimer > 135 )
+        {
+            this.setCurrentAnimation( this.directionString + "shoot" );
+        }
+        else if ( this.vel.x || this.vel.y )
+        {
+            this.setCurrentAnimation( this.directionString + "run" );
+        }
+        else
+        {
+            this.setCurrentAnimation( this.directionString + "idle" );
+        }
+
+        this.updateMovement();
+        var move = ( this.vel.x || this.vel.y );
+        if ( move )
+            this.parent( this );
+        return move;
+    }
+});
+
+var EnemyBullet = PlayerParticle.extend(
+{
+    init: function( x, y, sprite, spritewidth, speed, frames, type, collide, spriteheight )
+    {
+        this.parent( x, y, sprite, spritewidth, speed, frames, type, collide, spriteheight );
+        this.gravity = 0;
+        this.timer = 100;
+        this.collidable = true;
+        this.updateColRect( 12, 24, 12, 24 );
+    },
+
+    onCollision: function( res, obj )
+    {
+        if ( obj == me.game.player )
+        {
+            me.game.player.hit();
+            me.game.remove( this );
+            me.audio.play( "bullethit" );
+        }
+    },
+
+    update: function()
+    {
+        this.timer--;
+        if ( this.timer == 0 ) me.game.remove( this );
+        this.updateMovement();
+        return this.parent( this );
+    }
+});
